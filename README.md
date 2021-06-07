@@ -13,6 +13,7 @@
 - [x] Cadastro de Aprovadores
 - [x] Cadastro de Escritórios
 - [x] Cadastro de Processos
+- [x] Chat
 
 ### 📋 Pré-requisitos
 
