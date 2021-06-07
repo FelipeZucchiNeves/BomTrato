@@ -1,0 +1,12 @@
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.csprojAssemblyReference.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.AssemblyInfoInputs.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.AssemblyInfo.cs
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.csproj.CoreCompileInputs.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\bin\Debug\netstandard2.1\BomTratoData.deps.json
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\bin\Debug\netstandard2.1\BomTratoData.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\bin\Debug\netstandard2.1\BomTratoData.pdb
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\bin\Debug\netstandard2.1\BomTratoDomain.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\bin\Debug\netstandard2.1\BomTratoDomain.pdb
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.csproj.CopyComplete
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoData\obj\Debug\netstandard2.1\BomTratoData.pdb

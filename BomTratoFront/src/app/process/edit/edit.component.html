@@ -1,0 +1,72 @@
+<div class="container main-container">
+
+    <h1>Editar Processo</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="editProcess()" [formGroup]="processForm">
+
+                <div class="alert alert-danger" *ngIf="errors.length > 0">
+                    <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                    <ul>
+                        <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
+                </div>
+                <input type="hidden" id="aproverId" name="aproverId" value="">
+                <input type="hidden" id="officeId" name="officeId" value="">
+                <div>
+                    <div class="form-group">
+                        <label class="control-label">Número do Processo</label>
+                        <div>
+                            <input class="form-control" id="processNumber" type="text" placeholder="Número do Processo (requerido)" 
+                            formControlName="processNumber" [ngClass]="{ 'is-invalid': displayMessage.processNumber }" />
+                            <span class="text-danger" *ngIf="displayMessage.processNumber">
+                            <p [innerHTML]="displayMessage.processNumber"></p>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Valor</label>
+                        <div>
+                            <input class="form-control" id="value" type="number" step="0.01" placeholder="Valor (requerido)" 
+                            formControlName="value" [ngClass]="{ 'is-invalid': displayMessage.value }" />
+                            <span class="text-danger" *ngIf="displayMessage.value">
+                            <p [innerHTML]="displayMessage.value"></p>
+                        </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Escritorio</label>
+                        <div>
+                            <select class="form-control" id="escritorioId" formControlName="escritorioId" 
+                                [ngClass]="{ 'is-invalid': displayMessage.escritorioId }">
+                                <option *ngFor="let office of offices" [value] = "office.id">{{office.street}}</option>
+                            </select>
+                            <span class="text-danger" *ngIf="displayMessage.escritorioId">
+                                <p [innerHTML]="displayMessage.escritorioId"></p>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Nome do CLiente</label>
+                        <div>
+                            <input class="form-control" id="complainerName" type="text" placeholder="Nome do CLiente (requerido)" 
+                            formControlName="complainerName" [ngClass]="{ 'is-invalid': displayMessage.complainerName }" />
+                            <span class="text-danger" *ngIf="displayMessage.complainerName">
+                            <p [innerHTML]="displayMessage.complainerName"></p>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <input type="submit" value="Editar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="[ '/processos/listar-todos']">Voltar</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

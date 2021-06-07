@@ -1,0 +1,44 @@
+version: '3.4'
+
+networks: 
+    bt-network:
+        driver: bridge
+
+services:
+  bomtratoapi:
+    image: bomtratoapi
+    build:
+      context: .
+      dockerfile: BomTratoApi/Dockerfile
+    ports:
+      - 44394:443
+    networks:
+      - bt-network
+    depends_on:
+      - "sqlserver"
+
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server"
+    container_name: sqlserver
+    environment: 
+        SA_PASSWORD: "Your_password123"
+        ACCEPT_EULA: "Y"
+    ports:
+        - 1433:1433
+    networks:
+        - bt-network
+
+  angular:
+    build: ../BomTratoFront
+    container_name: angular
+    ports:
+      - 4200:80
+      - 4201:80
+      - 4202:80
+    networks:
+        - bt-network
+    depends_on:
+      - "bomtratoapi"
+    links:
+      - bomtratoapi
+

@@ -1,0 +1,48 @@
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow">
+        <div class="container">
+            <a class="navbar-brand " [routerLink]="['/home']">
+                <img src="/assets/bomtrato.png" />
+            </a>
+            <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed" data-toggle="collapse"
+                data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse" [ngbCollapse]="isCollapsed">
+
+                <ul [ngSwitch]="loginUser()" class="navbar-nav">
+                    <li *ngSwitchCase="false" class="nav-item" style="padding-right: 30px;">
+                        <a class="btn btn-primary" [routerLink]="['/conta/login']">Entrar</a>
+                    </li>
+                    <li *ngSwitchCase="false" class="nav-item">
+                        <a class="btn btn-success" [routerLink]="['/conta/cadastro']">Crie sua conta</a>
+                    </li>
+
+                    <li *ngSwitchCase="true" class="nav-item">
+                        <a class="nav-link text-dark" id="saudacaoUsuario" href="javascript:void(0)">{{ email }}</a>
+                    </li>
+                    <li *ngSwitchCase="true" class="nav-item">
+                        <a class="nav-link text-dark" href="javascript:void(0)" (click)="logout()">
+                            Sair <span class="fas fa-sign-out-alt"></span></a>
+                    </li>
+                </ul>
+
+                <ul *ngIf="loginUser()" class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark"[routerLink]="['/aprovadores/listar-todos']"><strong>Aprovadores</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/escritorios/listar-todos']"><strong>Escritórios</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/processos/listar-todos']"><strong>Processos</strong></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" [routerLink]="['/chat']"><strong>Chat</strong></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

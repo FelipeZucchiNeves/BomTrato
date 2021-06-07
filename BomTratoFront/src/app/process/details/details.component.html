@@ -1,0 +1,42 @@
+<div class="container main-container">
+
+    <h3>Detalhes do processo {{ process.processNumber }} ?</h3>
+    <hr />
+
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label class="control-label">Número do Processo</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ process.processNumber }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Valor</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ process.value | currency:'R$ '}}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Aprovado</label>
+            </dt>
+            <dd *ngIf="process.aproved == true" class="col-sm-10">
+                Sim
+            </dd>
+            <dd *ngIf="process.aproved == false" class="col-sm-10">
+                Não
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Cadastrado por</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ aprover.name }} {{aprover.lastName}}
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/processos/editar',process.id]">Editar</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/processos/listar-todos']">Voltar</a>
+    </div>
+</div>

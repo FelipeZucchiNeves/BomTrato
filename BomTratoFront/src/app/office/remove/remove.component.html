@@ -1,0 +1,46 @@
+<div class="container main-container">
+
+    <div class="alert alert-danger" *ngIf="errors.length > 0">
+        <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+        <ul>
+            <li *ngFor="let error of errors">{{ error }}</li>
+        </ul>
+    </div>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            <label class="control-label">Rua</label>
+        </dt>
+        <dd class="col-sm-10">
+            {{ office.street }}
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Number</label>
+        </dt>
+        <dd class="col-sm-10">
+            {{ office.number }}
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Bairro</label>
+        </dt>
+        <dd class="col-sm-10">
+            {{ office.district }}
+        </dd>
+        <dt class="col-sm-2">
+            <label class="control-label">Estado</label>
+        </dt>
+        <dd class="col-sm-10">
+            {{ office.state }}
+        </dd>
+    </dl>
+    <div class="row">
+        <br>
+        <iframe width="100%" height="450" frameborder="0" style="border:0; padding-bottom: 50px;" [src]="addressToMap"
+            allowfullscreen></iframe>
+    </div>
+
+    <div>
+        <a class="btn btn-danger" href="javascript:void(0)" (click)="removeOffice()">Excluir</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/escritorios/listar-todos']">Voltar</a>
+    </div>
+</div>

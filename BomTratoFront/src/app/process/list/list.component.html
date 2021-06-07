@@ -1,0 +1,83 @@
+<div class="container main-container">
+
+    <h1>Lista de Processos</h1>
+
+    <p>
+        <a class="btn btn-info" [routerLink]="['/processos/adicionar-novo']">Novo Processo</a>
+    </p>
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Número</th>
+                <th>Valor</th>
+                <th>Aprovado?</th>
+                <th>Status</th>
+                <th>Cliente</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tr *ngFor="let process of processes">
+            <div *ngIf="process.status == true; then inactive else active"></div>
+            <ng-template #inactive>
+                <td>
+                    {{ process.processNumber }}
+                </td>
+                <td>
+                    {{ process.value | currency:'R$ ' }}
+                </td>
+                <td>
+                    Inativo
+                </td>
+                <td>
+                    Inativo
+                </td>
+                <td>
+                    {{ process.complainerName }}
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-info disabled" [routerLink]="['/processos/detalhes',process.id] ">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-warning disabled" [routerLink]="['/processos/editar',process.id]">
+                        <span class="fa fa-pencil-alt"></span>
+                    </a>
+                </td>
+            </ng-template>
+
+            <ng-template #active>
+                <td>
+                    {{ process.processNumber }}
+                </td>
+                <td>
+                    {{ process.value | currency:'R$ '}}
+                </td>
+                <td *ngIf="process.aproved == false">
+                    <a class="btn btn-outline-success" (click)="aproveProcess(process)">
+                        <span><strong>Aprovar</strong></span>
+                    </a>&nbsp;
+                </td>
+                <td *ngIf="process.aproved == true">
+                    Sim
+                </td>
+                <td *ngIf="process.status == false">
+                    Ativo&nbsp;
+                    <a class="btn btn-outline-danger" (click)="InactiveProcess(process)">
+                        <span><strong>Inativar</strong></span>
+                    </a>&nbsp;
+                </td>
+                <td>
+                    {{ process.complainerName }}
+                </td>
+                <td class="text-right">
+                    <a class="btn btn-info" [routerLink]="['/processos/detalhes',process.id] ">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-warning" [routerLink]="['/processos/editar',process.id]">
+                        <span class="fa fa-pencil-alt"></span>
+                    </a>
+                </td>
+            </ng-template>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,69 @@
+<div class="container main-container">
+
+    <h1>Novo Fornecedor</h1>
+
+    <hr>
+    <div class="row">
+        <div class="col-md-10">
+            <form novalidate="novalidate" (ngSubmit)="addAprover()" [formGroup]="aproverForm">
+
+                <div class="alert alert-danger" *ngIf="errors.length > 0">
+                    <h3 id="msgRetorno">Opa! Alguma coisa não deu certo:</h3>
+                    <ul>
+                        <li *ngFor="let error of errors">{{ error }}</li>
+                    </ul>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Nome</label>
+                    <div>
+                        <input class="form-control" id="nome" type="text" placeholder="Nome (requerido)" formControlName="name" [ngClass]="{'is-invalid': displayMessage.name }" />
+                        <span class="text-danger" *ngIf="displayMessage.name">
+                            <p [innerHTML]="displayMessage.name"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Sobrenome</label>
+                    <div>
+                        <input class="form-control" id="lastName" type="text" placeholder="Sobrenome (requerido)" formControlName="lastName" [ngClass]="{'is-invalid': displayMessage.lastName }" />
+                        <span class="text-danger" *ngIf="displayMessage.lastName">
+                            <p [innerHTML]="displayMessage.lastName"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">E-mail</label>
+                    <div>
+                        <input class="form-control" id="email" type="text" placeholder="Email (requerido)" formControlName="email" [ngClass]="{'is-invalid': displayMessage.email }" />
+                        <span class="text-danger" *ngIf="displayMessage.email">
+                            <p [innerHTML]="displayMessage.email"></p>
+                        </span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <label class="control-label">Data de Nascimento</label>
+                        <div class="input-group">
+                          <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" formControlName="birthDate" [ngClass]="{'is-invalid': displayMessage.birthDate }"/>
+
+                          <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"><img  src="/assets/calendar.png" width="20"></button>
+                            <br>
+                            <span class="text-danger" *ngIf="displayMessage.birthDate">
+                                <p [innerHTML]="displayMessage.birthDate"></p>
+                            </span>  
+                        </div>
+                        </div>
+                      </div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Cadastrar" class="btn btn-primary">&nbsp;
+                    <a class="btn btn-info" [routerLink]="[ '/aprovadores/listar-todos']">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

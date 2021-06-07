@@ -1,0 +1,55 @@
+networks:
+  bt-network:
+    driver: bridge
+services:
+  angular:
+    build:
+      context: C:\Users\felip\OneDrive\┴rea de Trabalho\Bomtrato\BomTratoFront
+    container_name: angular
+    depends_on:
+      bomtratoapi:
+        condition: service_started
+    links:
+    - bomtratoapi
+    networks:
+      bt-network: {}
+    ports:
+    - published: 4200
+      target: 80
+    - published: 4201
+      target: 80
+    - published: 4202
+      target: 80
+  bomtratoapi:
+    build:
+      context: C:\Users\felip\OneDrive\┴rea de Trabalho\Bomtrato\BomTratoBack
+      dockerfile: BomTratoApi/Dockerfile
+    depends_on:
+      sqlserver:
+        condition: service_started
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: bomtratoapi
+    networks:
+      bt-network: {}
+    ports:
+    - target: 80
+    - published: 44394
+      target: 443
+    - target: 443
+    volumes:
+    - C:\Users\felip\AppData\Roaming\ASP.NET\Https:/root/.aspnet/https:ro
+    - C:\Users\felip\AppData\Roaming\Microsoft\UserSecrets:/root/.microsoft/usersecrets:ro
+  sqlserver:
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: Your_password123
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      bt-network: {}
+    ports:
+    - published: 1433
+      target: 1433
+version: '3.4'

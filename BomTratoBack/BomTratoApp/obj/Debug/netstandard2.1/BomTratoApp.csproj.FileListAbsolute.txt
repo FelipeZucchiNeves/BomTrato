@@ -1,0 +1,7 @@
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\bin\Debug\netstandard2.1\BomTratoData.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\bin\Debug\netstandard2.1\BomTratoDomain.dll
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\obj\Debug\netstandard2.1\BomTratoApp.csprojAssemblyReference.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\obj\Debug\netstandard2.1\BomTratoApp.AssemblyInfoInputs.cache
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\obj\Debug\netstandard2.1\BomTratoApp.AssemblyInfo.cs
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\bin\Debug\netstandard2.1\BomTratoDomain.pdb
+C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApp\obj\Debug\netstandard2.1\BomTratoApp.csproj.CoreCompileInputs.cache

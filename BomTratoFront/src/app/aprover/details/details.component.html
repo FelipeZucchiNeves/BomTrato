@@ -1,0 +1,125 @@
+<div class="container main-container">
+    <h1>Detalhes do {{ this.aprover.name }}</h1>
+
+    <div>
+        <h4>Informação somente leitura</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label class="control-label">Nome</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ aprover.name }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Sobrenome</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ aprover.lastName }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Email</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ aprover.email }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Nascimento</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ aprover.birthDate }}
+            </dd>
+        </dl>
+    </div>
+
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/aprovadores/editar',aprover.id]">Editar</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/aprovadores/listar-todos']">Voltar</a>
+    </div>
+
+    <div>
+
+        <div style="padding-top: 20px">
+            <div>
+                <hr>
+                <h4>Processos</h4>
+            </div>
+
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            Número
+                        </th>
+                        <th>
+                            Valor
+                        </th>
+                        <th>
+                            Aprovado?
+                        </th>
+                        <th>
+                            Status
+                        </th>
+                        <th>
+                            Cliente
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let process of processes">
+                        <div *ngIf="process.status == true; then inactive else active"></div>
+                        <ng-template #inactive>
+                            <td>
+                                {{ process.processNumber }}
+                            </td>
+                            <td>
+                                {{ process.value | currency:'R$ ' }}
+                            </td>
+                            <td>
+                                Inativo
+                            </td>
+                            <td>
+                                Inativo
+                            </td>
+                            <td>
+                                {{ process.complainerName }}
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-info disabled" [routerLink]="['/processos/editar',process.id]">
+                                    <span class="fa fa-pencil-alt"></span>
+                                </a>
+                            </td>
+                        </ng-template>
+            
+                        <ng-template #active>
+                            <td>
+                                {{ process.processNumber }}
+                            </td>
+                            <td>
+                                {{ process.value | currency:'R$ '}}
+                            </td>
+                            <td *ngIf="process.aproved == false">
+                            </td>
+                            <td *ngIf="process.aproved == true">
+                                Sim
+                            </td>
+                            <td *ngIf="process.status == false">
+                                Ativo
+                            </td>
+                            <td>
+                                {{ process.complainerName }}
+                            </td>
+                            <td class="text-right">
+                                <a class="btn btn-info" [routerLink]="['/processos/editar',process.id]">
+                                    <span class="fa fa-pencil-alt"></span>
+                                </a>
+                            </td>
+                        </ng-template>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

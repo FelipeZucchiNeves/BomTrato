@@ -1,0 +1,7 @@
+services:
+  bomtratoapi:
+    build:
+      context: C:\Users\felip\OneDrive\Área de Trabalho\Bomtrato\BomTratoApi\BomTratoApi
+      dockerfile: Dockerfile
+    image: bomtratoapi
+version: '3.4'
