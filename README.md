@@ -164,4 +164,4 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ### Autor
 ---
 
-[![Linkedin Badge](https://img.shields.io/badge/-FelipeNeves-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipe-neves-a9b55116a/)](https://www.linkedin.com/in/felipe-neves-a9b55116a/)
+[![Linkedin Badge](https://img.shields.io/badge/-Felipe%20Neves-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipe-neves-a9b55116a/)](https://www.linkedin.com/in/felipe-neves-a9b55116a/)
